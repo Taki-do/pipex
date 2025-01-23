@@ -6,7 +6,7 @@
 /*   By: taomalbe <taomalbe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:40:56 by taomalbe          #+#    #+#             */
-/*   Updated: 2025/01/22 16:53:15 by taomalbe         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:04:58 by taomalbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@
 # include <sys/wait.h>
 
 char	*get_cmd_path(char *cmd, char *envp[]);
+void	free_split(char **split);
 
 #endif
