@@ -6,7 +6,7 @@
 /*   By: taomalbe <taomalbe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:52:36 by taomalbe          #+#    #+#             */
-/*   Updated: 2025/01/23 14:08:13 by taomalbe         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:49:36 by taomalbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	main(int ac, char *av[], char *envp[])
 {
-	int		fd[2];
+	int		i;
+	int		**fd;
 	int		infile;
 	int		outfile;
 	pid_t	pid;
@@ -22,15 +23,21 @@ int	main(int ac, char *av[], char *envp[])
 	char	**args2;
 	char	*cmd1;
 	char	*cmd2;
+	int		all_pipes;
 
-	if (ac == 5)
+	if (ac >= 5)
 	{
+		i = 0;
+		while (av[i + 1])
+			i++;
+		fd = init_fd(ac, all_pipes);
 		infile = open(av[1], O_RDONLY); //Read infile
-		outfile = open(av[4], O_WRONLY | O_CREAT | O_TRUNC, 0644); //Read outfile
+		outfile = open(av[i], O_WRONLY | O_CREAT | O_TRUNC, 0644); //Read outfile
 		if (infile == -1 || outfile == -1)
 			return (perror("Can't open files"), 1);
 		if (pipe(fd) == -1)
-			return (perror("pipe error\n"), 1);	
+			return (perror("pipe error\n"), 1);
+		
 		args = ft_split(av[2], ' ');
 		args2 = ft_split(av[3], ' ');
 		cmd1 = get_cmd_path(args[0], envp);
@@ -46,6 +53,7 @@ int	main(int ac, char *av[], char *envp[])
 			close(outfile);
 			execve(cmd1, args, envp);	
 		}
+		close(fd[1]);
 		pid = fork();
 		if (pid == 0)
 		{
