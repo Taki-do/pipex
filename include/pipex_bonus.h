@@ -6,7 +6,7 @@
 /*   By: taomalbe <taomalbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:18:26 by taomalbe          #+#    #+#             */
-/*   Updated: 2025/02/03 13:03:22 by taomalbe         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:45:43 by taomalbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_fd
 }	t_fd;
 
 char	*get_cmd_path(char *cmd, char *envp[]);
+int		here_main(int ac, char *av[], char *envp[], char *limiter);
 void	free_split(char **split);
 
 #endif

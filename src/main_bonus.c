@@ -6,7 +6,7 @@
 /*   By: taomalbe <taomalbe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:38:46 by taomalbe          #+#    #+#             */
-/*   Updated: 2025/02/03 13:54:37 by taomalbe         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:46:08 by taomalbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,14 @@ void	exec_pipes(char **envp, char **argv, int ac)
 		waitpid(pids[i], NULL, 0);
 }
 
-int	main(int ac, char **argv, char **envp)
+int	main(int ac, char **av, char **envp)
 {
 	if (ac >= 5)
-		exec_pipes(envp, argv, ac);
+	{
+		if (ft_strcmp(av[1], "here_doc") == 0)
+			here_main(ac, av, envp, av[2]);
+		else
+			exec_pipes(envp, av, ac);
+	}
 }
 

@@ -2,7 +2,7 @@ NAME = pipex
 PATH_LIBFT = libft/
 LIBFT_LIB = $(PATH_LIBFT)libft.a
 SRC = src/main.c src/path.c
-SRC_BONUS = src/main_bonus.c src/path.c src/fd_bonus.c
+SRC_BONUS = src/main_bonus.c src/path.c src/heredoc_bonus.c
 OBJ = $(SRC:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 CC = gcc
