@@ -6,12 +6,12 @@
 /*   By: taomalbe <taomalbe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:18:26 by taomalbe          #+#    #+#             */
-/*   Updated: 2025/01/23 16:49:46 by taomalbe         ###   ########.fr       */
+/*   Updated: 2025/02/08 10:25:59 by taomalbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
 # include "libft/libft.h"
 # include <fcntl.h>
@@ -24,7 +24,7 @@
 
 typedef struct s_fd
 {
-	int **fd;
+	int	**fd;
 	int	track;
 	int	index_cmd;
 }	t_fd;

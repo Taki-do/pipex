@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taomalbe <taomalbe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: taomalbe <taomalbe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:38:46 by taomalbe          #+#    #+#             */
-/*   Updated: 2025/02/03 14:46:08 by taomalbe         ###   ########.fr       */
+/*   Updated: 2025/02/08 16:26:34 by taomalbe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,11 @@ void	exec_pipes(char **envp, char **argv, int ac)
 	i = 2;
 	j = 0;
 	prev_pipe = -1;
+	if ()
 	infile = open(argv[1], O_RDONLY);
 	outfile = open(argv[ac - 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (infile == -1 || outfile == -1)
-			return (perror("Can't open files"));
+			perror("Can't open files");
 	while (argv[i] && i < ac - 1)
 	{
 		if (i < ac - 2 && pipe(fd) == -1)
